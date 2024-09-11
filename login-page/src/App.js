@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
+import google_logo from "/Applications/Desktop/personal_projects/mra/movie-junkie/login-page/src/google_logo.svg";
+import arrow from "/Applications/Desktop/personal_projects/mra/movie-junkie/login-page/src/arrow.svg";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='login-component'>
+      <form>
+        <h1>Login</h1>
+        <input className='email' type='email' name='email' placeholder='Email' required />
+        <input className='password' type='password' name='password' placeholder='Password' required />
+        <button type="submit" className="btn" id="btn">
+          <img src={arrow} alt="arrow" className="arrow-icon" />
+        </button>
+      </form>
+
+      <button className='google-btn'><img src={google_logo} alt='google logo' /> Sign in with Google</button>
     </div>
   );
 }
