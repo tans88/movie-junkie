@@ -19,6 +19,7 @@ html, body{
   background-color: white;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   flex: 1;
   min-width: 400px;
@@ -35,7 +36,7 @@ form{
 
 form h1{
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: 800;
 }
 
 form .email{
@@ -51,13 +52,13 @@ form .password{
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
   margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-weight: 300;
 }
 
 form button{
-  height: 2rem;
-  width: 2rem;
+  height: 25px;
+  width: 25px;
   border-radius: 50%;
   border-width: 1px;
   margin: 0 auto;
@@ -71,10 +72,76 @@ form button:hover{
 }
 
 form button img{
-  margin-top: 5px;
+  margin-top: 2px;
   font-size: 0.5rem;
+  transition: 0.3s ease-in-out;
+}
+
+button img:hover{
+  transform: scale(1.05);
 }
 
 input:focus {
   outline: none;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: -30px;
+  width: 80%;
+}
+
+.divider span{
+  font-weight: 300;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex-grow: 1;
+  height: 1px;
+  background-color: gray;
+}
+
+.divider::before {
+  margin-right: 10px;
+}
+
+.divider::after {
+  margin-left: 10px;
+}
+
+.google-btn{
+  height: 2.5rem;
+  width: 50%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid gray;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.google-btn img{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.google-btn:hover{
+  transform: scale(1.05);
+}
+
+.create-account{
+  margin: 4rem auto 20px auto;
+}
+
+.create-account a{
+  text-decoration: underline;
+  cursor: pointer;
 }

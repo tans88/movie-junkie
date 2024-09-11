@@ -6,8 +6,9 @@ import './App.css';
 function App() {
   return (
     <div className='login-component'>
+      {/* Login Form */}
       <form>
-        <h1>Login</h1>
+        <h1>SIGN IN</h1>
         <input className='email' type='email' name='email' placeholder='Email' required />
         <input className='password' type='password' name='password' placeholder='Password' required />
         <button type="submit" className="btn" id="btn">
@@ -15,7 +16,13 @@ function App() {
         </button>
       </form>
 
-      <button className='google-btn'><img src={google_logo} alt='google logo' /> Sign in with Google</button>
+      {/* Divider */}
+      <div className="divider">
+        <span>OR</span>
+      </div>
+      <button className='google-btn'><img src={google_logo} alt='google logo' /> Log in with Google</button>
+
+      <p className='create-account'>Not a member? <a src="">Sign up now</a></p>
     </div>
   );
 }
