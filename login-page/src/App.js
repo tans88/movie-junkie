@@ -1,11 +1,14 @@
 import React from 'react';
-import google_logo from "/Applications/Desktop/personal_projects/mra/movie-junkie/login-page/src/google_logo.svg";
 import arrow from "/Applications/Desktop/personal_projects/mra/movie-junkie/login-page/src/arrow.svg";
+import { GoogleLogin } from '@react-oauth/google';
 import './App.css';
+
+const clientId = '114509371072-7tarhegmoe9enjf1k3venbm3h7uap4fa.apps.googleusercontent.com';
 
 function App() {
   return (
     <div className='login-component'>
+
       {/* Login Form */}
       <form>
         <h1>SIGN IN</h1>
@@ -20,9 +23,18 @@ function App() {
       <div className="divider">
         <span>OR</span>
       </div>
-      <button className='google-btn'><img src={google_logo} alt='google logo' /> Log in with Google</button>
 
-      <p className='create-account'>Not a member? <a src="">Sign up now</a></p>
+      {/* Google Button */}
+      <div className='google-btn'>
+        <GoogleLogin
+          clientId={clientId}
+          onSuccess={(response) => console.log(response)}
+          onError={(error) => console.log('Login failed: ', error)}
+        />
+      </div>
+
+      <p className='create-account'>Not a member? <a href="http://localhost:3000/">Sign up now</a></p>
+
     </div>
   );
 }
