@@ -5,7 +5,7 @@ import './signIn.css';
 
 const clientId = '114509371072-7tarhegmoe9enjf1k3venbm3h7uap4fa.apps.googleusercontent.com';
 
-function SignIn() {
+function SignIn({ onSignUpClick }) {
     return (
       <div className='login-component'>
   
@@ -33,7 +33,7 @@ function SignIn() {
           />
         </div>
   
-        <p className='create-account'>Not a member? <a href="http://localhost:3000/">Sign up now</a></p>
+        <p className='create-account'>Not a member? <span onClick={onSignUpClick}>Sign up now</span></p>
   
       </div>
     );

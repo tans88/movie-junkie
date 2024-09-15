@@ -112,7 +112,7 @@ input:focus {
     margin: 4rem auto 20px auto;
 }
   
-.create-account a{
+.create-account span{
     text-decoration: underline;
     color: black;
     cursor: pointer;
