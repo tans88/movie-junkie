@@ -31,7 +31,7 @@ function SignIn({ onSignUpClick }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required />
-          
+
           <button type="submit" className="btn" id="btn">
             <img src={arrow} alt="arrow" className="arrow-icon" />
           </button>

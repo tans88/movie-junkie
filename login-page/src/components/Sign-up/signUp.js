@@ -6,7 +6,14 @@ function SignUp({ onSignInClick }) {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [email, setEmail] = useState('');
     const [isConfirmed, setIsConfirmed] = useState(false);
+
+    // checks if email is valid
+    const checkEmail = (email) => {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(email);
+    };
 
     // checks if password meets criteria and if passwords match
     const checkPassword = (password) => {
@@ -14,8 +21,15 @@ function SignUp({ onSignInClick }) {
         return passwordRegex.test(password);
     };
 
+    // checks password and confirmation password
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (!checkEmail(email)){
+            setErrorMessage('Email address is invalid.');
+            setIsConfirmed(false);
+            return;
+        }
 
         if (!checkPassword(password)){
             setErrorMessage('Password must be 8 characters long, have at least one capital letter, at least one number, and at least one speical character.');
@@ -42,8 +56,10 @@ function SignUp({ onSignInClick }) {
           className='email' 
           type='email' 
           name='email' 
-          placeholder='Email' 
-          required />
+          placeholder='Email'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          />
           <input 
           className='password' 
           type='password' 
@@ -51,15 +67,15 @@ function SignUp({ onSignInClick }) {
           placeholder='Password' 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required />
+          />
           <input 
           className='confirm-password' 
           type='password' 
           name='password' 
-          placeholder='Confirm Password' 
+          placeholder='Confirm Password'
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          required />
+          />
 
           <button onClick={handleSubmit} type="submit" className="btn" id="btn">
             <img src={arrow} alt="arrow" className="arrow-icon" />
