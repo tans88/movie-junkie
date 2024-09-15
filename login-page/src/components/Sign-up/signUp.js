@@ -25,6 +25,25 @@ function SignUp({ onSignInClick }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (email === ''){
+            setErrorMessage('Please enter your email address.');
+            setIsConfirmed(false);
+            return;
+
+        }
+
+        if (password === ''){
+            setErrorMessage('Please enter your password.');
+            setIsConfirmed(false);
+            return;
+        }
+
+        if (confirmPassword === ''){
+            setErrorMessage('Please confirm your password.');
+            setIsConfirmed(false);
+            return;
+        }
+
         if (!checkEmail(email)){
             setErrorMessage('Email address is invalid.');
             setIsConfirmed(false);

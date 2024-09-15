@@ -18,6 +18,16 @@ function SignIn({ onSignUpClick }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (email === ''){
+            setErrorMessage('Please enter your email address.');
+            return;
+        }
+
+        if (password === ''){
+            setErrorMessage('Please enter your password.');
+            return;
+        }
+
         if (!checkEmail(email)){
             setErrorMessage('Email address is invalid.');
             return;
