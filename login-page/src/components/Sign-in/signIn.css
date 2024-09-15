@@ -75,7 +75,7 @@ input:focus {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-top: -30px;
+    margin-top: 10px;
     width: 80%;
 }
   
@@ -118,4 +118,17 @@ input:focus {
     text-decoration: underline;
     color: black;
     cursor: pointer;
+}
+
+.error-message{
+    font-weight: 400;
+    width: 85%;
+    text-align: center;
+    margin: -20px auto;
+    margin-bottom: 20px;
+    color: red;
+}
+
+.noDisplay{
+    display: none;
 }

@@ -8,6 +8,23 @@ const clientId = '114509371072-7tarhegmoe9enjf1k3venbm3h7uap4fa.apps.googleuserc
 function SignIn({ onSignUpClick }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const checkEmail = (email) => {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(email);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!checkEmail(email)){
+            setErrorMessage('Email address is invalid.');
+            return;
+        }
+
+        setErrorMessage('');
+    }
 
     return (
       <div className='login-component'>
@@ -22,7 +39,7 @@ function SignIn({ onSignUpClick }) {
           placeholder='Email' 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required />
+          />
           <input 
           className='password' 
           type='password' 
@@ -30,12 +47,19 @@ function SignIn({ onSignUpClick }) {
           placeholder='Password' 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required />
+          />
 
-          <button type="submit" className="btn" id="btn">
+          <button onClick={handleSubmit} type="submit" className="btn" id="btn">
             <img src={arrow} alt="arrow" className="arrow-icon" />
           </button>
         </form>
+
+        {/* Display error message */}
+        {errorMessage !== '' ? (
+            <p className='error-message'>{errorMessage}</p>
+        ) : (
+            <p className='noDisplay'></p>
+        )}
   
         {/* Divider */}
         <div className="divider">
