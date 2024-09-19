@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './signUp.css';
 import arrow from '../Sign-in/arrow.svg';
-import safeRegex from 'safe-regex';
 
 function SignUp({ onSignInClick }) {
     const [password, setPassword] = useState('');
@@ -13,20 +12,12 @@ function SignUp({ onSignInClick }) {
     // checks if email is valid
     const checkEmail = (email) => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!safeRegex(emailRegex)){
-          console.log("Regex entered is unsafe!");
-          return false;
-        }
         return emailRegex.test(email);
     };
 
     // checks if password meets criteria and if passwords match
     const checkPassword = (password) => {
         const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
-        if (!safeRegex(passwordRegex)){
-          console.log("Password entered is unsafe!");
-          return false;
-        }
         return passwordRegex.test(password);
     };
 
