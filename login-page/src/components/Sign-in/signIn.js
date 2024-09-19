@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import arrow from './arrow.svg';
 import { GoogleLogin } from '@react-oauth/google';
+import safeRegex from 'safe-regex';
 import './signIn.css';
 
 const clientId = '114509371072-7tarhegmoe9enjf1k3venbm3h7uap4fa.apps.googleusercontent.com';
@@ -12,6 +13,10 @@ function SignIn({ onSignUpClick }) {
 
     const checkEmail = (email) => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!safeRegex(emailRegex)){
+          console.log("Regex entered is unsafe!");
+          return false;
+        }
         return emailRegex.test(email);
     };
 
