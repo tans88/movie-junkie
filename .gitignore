@@ -1,8 +1,15 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Python
+/backend/venv/
+*.pyc
+__pycache__/
+
+# Flask environment variables
+/backend/.env
+
 # dependencies
-/login-page/node_modules
-/backend/node_modules
+/frontend/node_modules
 /.pnp
 .pnp.js
 
@@ -18,11 +25,10 @@
 .env.development.local
 .env.test.local
 .env.production.local
-/backend/.env
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # Node.js and ESLint cache files
-/login-page/node_modules/.cache/
+/frontend/node_modules/.cache/
